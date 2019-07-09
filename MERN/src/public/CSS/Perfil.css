@@ -1,0 +1,22 @@
+.nav-wrapper{
+    background-color:#1565c0; 
+  }
+  .page-footer{
+    background-color:#1565c0; 
+  }
+  .card-image {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .collection .collection-item.active{
+    background-color: #1e88e5; 
+  }
+  .card-content{
+    text-align: justify;
+  }
+  .center-text{
+    text-align: center;
+  }
+  hr{
+    border-color: #1565c0;
+  }
