@@ -22,7 +22,7 @@ class Login extends Component{
         .then(res=>res.json())
         .then (data=>{
             if (data._id)
-            this.setState({redirect:true});
+            this.setState({_id:data._id,redirect:true});
         });
         
         
@@ -41,6 +41,7 @@ class Login extends Component{
             return <Redirect to={{ pathname:'/Perfil',
             state:{
                 iden: this.state._id
+                
             }}
             }></Redirect> 
             }
@@ -49,7 +50,7 @@ class Login extends Component{
             <div className="container  " >
                 
                         <div className="row">
-                            <div className="col s6 offset-s2">
+                            <div className="col s12 ">
                                 <div className="card">
                                 <div className="card-action blue darken-3 white-text center-align ">
                                 
@@ -76,10 +77,14 @@ class Login extends Component{
                                             </button>
                                         </form> 
                                         <div className="row center-align" > 
-                                        <Link to={'./Registro'} className="center-align">
+                                        <Link to={{ pathname:'/Registro',
+                                        state:{
+                                        _id: this.state._id
+                
+            }}} className="center-align">
                                             Registrarse
                                         </Link>
-                                        <Link to={'./Ranking'} className="center-align"> Ranking</Link>
+                                        
                                         </div>
                                     </div>
                                 </div>

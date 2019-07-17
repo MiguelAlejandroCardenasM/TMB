@@ -113,20 +113,6 @@ class CalCal extends Component{
         this.setState({totalcalorias:temp});
       }
     
-      Editar(id){
-        fetch(`/api/tasks/alimentoe/${id}`)
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
-            this.setState({
-            identificador: data.identificador,
-            Alimento: data.Alimento,
-            Calorias: data.Calorias,
-            Cantidad: data.Cantidad,
-            _id: data._id
-            });
-        });
-    }
     borrar(id){
         if(confirm('Esta seguro de querer eliminar?')){
             //console.log('/api/tasks/'+id);
@@ -166,7 +152,7 @@ class CalCal extends Component{
                 
             </div>
             <div className="row">
-                <div className="col s6 m6 offset-s2">
+                <div className="col s12 m6 ">
                     <div className="card">
                         <div className="card-content ">
                             <span className="card-title center-align ">Añadir Alimento</span>
@@ -211,8 +197,6 @@ class CalCal extends Component{
                                                         <td>{registro.Cantidad}</td>
                                                         <td>{registro.Calorias*registro.Cantidad}</td>
                                                         <td>
-                                                            
-                                                            <button className="btn ligth-blue" onClick={()=>this.Editar(registro._id)}><i className="material-icons">edit</i></button>
                                                             <button className="btn ligth-blue" onClick={()=>this.borrar(registro._id)}><i className="material-icons">delete</i></button>
                                                         </td>
                                                         
@@ -236,7 +220,7 @@ class CalCal extends Component{
                           <center>
                         
 
-                           {this.state.totalcalorias}Calorias</center> 
+                           {this.state.totalcalorias} Calorias</center> 
                           
                         </div>
                     </div>

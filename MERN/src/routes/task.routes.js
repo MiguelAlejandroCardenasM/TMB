@@ -15,8 +15,8 @@ router.get('/alimentoe/:id', async(req,res)=>{
     res.json(alimentos);
 });
 router.get('/',async (req,res)=>{
-    const tasks = await Task.find();
-    res.json(tasks);
+    const datos = await Datos.find();
+    res.json(datos);
 });
 router.post('/alimento',async(req,res)=>{
     const {identificador,Alimento,Calorias,Cantidad}=req.body;
@@ -25,24 +25,28 @@ router.post('/alimento',async(req,res)=>{
     res.json('received');
 })
 //Muestra en pantalla los resultados
-rout[er.post('/',async(req, res)=>{
-    const{Usuario,Contrasena,nombre,Apellidos,GradoEstudios,HorarioDispo}=req.body;
-    const task=new Task({Usuario,Contrasena,nombre,Apellidos,GradoEstudios,HorarioDispo});
-    await task.save();
+router.post('/',async(req, res)=>{
+    const{Usuario,Contrasena,Nombre,Apellidos,Edad,Altura,Peso,Sexo}=req.body;
+    const datos=new Datos({Usuario,Contrasena,Nombre,Apellidos,Edad,Altura,Peso,Sexo});
+    await datos.save();
     res.json('received');
-});
+})
 
 //
 router.get('/validate/:Usuario/:Pass',async(req,res)=>{
-    const usuario=await Task.findOne({"Usuario":req.params.Usuario,"Contrasena":req.params.Pass});
+    const usuario=await Datos.findOne({"Usuario":req.params.Usuario,"Contrasena":req.params.Pass});
     res.json(usuario);
 })
 
+router.get('/perfil/:id',async(req,res)=>{
+    const perfil=await Datos.findOne({_id:req.params.id});
+    res.json(perfil);
+})
 //Actualizar registros de la BD
 router.put('/:id', async(req,res)=>{
-    const {Usuario,Contrasena,nombre,Apellidos,GradoEstudios,HorarioDispo}=req.body;
-    const newTask={Usuario,Contrasena,nombre,Apellidos,GradoEstudios,HorarioDispo};
-    await Task.findByIdAndUpdate(req.params.id,newTask);
+    const {Usuario,Contrasena,Nombre,Apellidos,Edad,Altura,Peso,Sexo}=req.body;
+    const newTask={Usuario,Contrasena,Nombre,Apellidos,Edad,Altura,Peso,Sexo};
+    await Datos.findByIdAndUpdate(req.params.id,newTask);
     res.json({status: "Task Updated"})
 });
 router.put('/alimento/:id', async(req,res)=>{
@@ -57,7 +61,7 @@ router.delete('/alimento/:id',async (req,res)=>{
 });
 //Borrar Registro de la BD
 router.delete('/:id',async (req,res)=>{
-    await Task.findByIdAndRemove(req.params.id);
+    await Datos.findByIdAndRemove(req.params.id);
     res.json('deleted');
 });
 

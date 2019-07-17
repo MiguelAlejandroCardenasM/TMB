@@ -1,3 +1,24 @@
+export const Comidas=[
+    {value: 250, label:'Rebanada de Pizza'},,
+    {value:300, label:'Sushi'},
+    { value: 150 , label: 'Teriyaki'},
+    {value: 700, label:'Ensalada Cesar'},
+    {value: 1000, label:'Ensalada Cesar con pollo'},
+    {value: 260, label:'Ensalada de lechuga y tomate'},
+    {value: 50, label:'Ensalada de Frutas'},
+    {value: 571, label:'Mole'},
+    {value: 36, label:'Caldo de pollo'},
+    {value: 168, label:'Caldo de Res'},
+    {value: 150,label:'Sabritas bolsa chica'},
+    {value: 320, label:'Nachos con queso'},
+    {value: 360, label:'Nachos con carne y queso'},
+    {value: 350, label:'Corn flakes'},
+    {value: 300, label:'Arroz frito (tz)'},
+    {value: 350, label:'Arroz frito con pollo (tz)'},
+    {Value: 360, label:'Hamburguesa'},
+    {value: 280, label:'HotDog'},
+    {vaue: 560, label:'Hotdog (costco)'}
+];
 export const Cereales=[
     {value: 126, label:'Arroz Hervido'},
     {value: 320, label:'Arroz Paella'},
@@ -93,6 +114,10 @@ export const AceitesyGrasas=[
     {value:292,label:'Confituras'},
     {value:561,label:'Chocolate Amargo'}
  ];
+ export const Sexo=[
+    {value:'H',label:'Hombre'},
+    {value:'M',label:'Mujer'}
+ ];
  export const Ejercicio=[
      {value: 1.2 , label:'Sedentario'},
      {value: 1.375 , label:'Ligero- Ejercicio 1-3 por Semana'},
@@ -103,6 +128,10 @@ export const AceitesyGrasas=[
  ];
 
  export const groupedOptions = [
+    {
+        label:'Comidas',
+        options: Comidas,
+    },
     {
       label: 'Cereales',
       options: Cereales,
@@ -124,7 +153,27 @@ export const AceitesyGrasas=[
         options: Leguminosas,
     },
     {
-        label: 'Leguminosas',
-        options: Leguminosas,
+        label: 'Lacteos y Derivados',
+        options: LacteosyDerivados,
+    },
+    {
+        label: 'Huevos',
+        options: Huevo,
+    },
+    {
+        label: 'Aceites y Grasas',
+        options: AceitesyGrasas,
+    },
+    {
+        label: 'Carnes Blancas',
+        options: CarnesBlancas,
+    },
+    {
+        label: 'Carnes Rojas',
+        options: CarnesRojas,
+    },
+    {
+        label: 'Azucares',
+        options: Azucares,
     }
   ];
